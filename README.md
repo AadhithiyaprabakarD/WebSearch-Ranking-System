@@ -16,7 +16,7 @@ The project also provides an interactive algorithm dashboard that exposes the pr
 
 ## 🔄 System Architecture
 
-```text
+
                     User Query
                         │
                         ▼
@@ -53,6 +53,8 @@ The project also provides an interactive algorithm dashboard that exposes the pr
                         │
                         ▼
                     Web UI
+
+
 
 
 ✨ Features
@@ -362,3 +364,5 @@ Additional retrieval algorithms
 WebRank — Web Search Ranking System
 
 Built as a Data Structures and Algorithms project demonstrating practical algorithm selection, complexity analysis, benchmarking, and interactive visualization.
+
+
