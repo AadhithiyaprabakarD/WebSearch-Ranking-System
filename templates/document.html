@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ document.title }} — WebRank</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f9fa;
+            color: #202122;
+        }
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #c8ccd1;
+            padding: 14px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3156a3;
+        }
+
+        .brand span {
+            color: #7b4bb7;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #3366cc;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           PAGE
+           ========================= */
+
+        .page {
+            max-width: 1250px;
+            margin: 30px auto;
+            padding: 0 24px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 190px minmax(0, 1fr) 260px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* =========================
+           LEFT CONTENTS
+           ========================= */
+
+        .contents {
+            position: sticky;
+            top: 90px;
+        }
+
+        .contents-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .contents a {
+            display: block;
+            padding: 6px 0;
+            font-size: 14px;
+            color: #3366cc;
+            text-decoration: none;
+        }
+
+        .contents a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           ARTICLE
+           ========================= */
+
+        article {
+            background: #ffffff;
+            border: 1px solid #c8ccd1;
+            padding: 32px 38px;
+        }
+
+        .category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            color: #6a3dad;
+            background: #f0e6ff;
+            padding: 5px 9px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 36px;
+            font-weight: normal;
+            margin: 0 0 10px;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #54595d;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .lead {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .section h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        .section p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: #202122;
+        }
+
+        /* =========================
+           INFO BOX
+           ========================= */
+
+        .infobox {
+            background: #ffffff;
+            border: 1px solid #a2a9b1;
+        }
+
+        .infobox-title {
+            background: #eaecf0;
+            padding: 12px;
+            text-align: center;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .infobox-row {
+            padding: 11px 13px;
+            border-top: 1px solid #eaecf0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .infobox-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* =========================
+           KEYWORDS
+           ========================= */
+
+        .keywords {
+            margin-top: 25px;
+        }
+
+        .keyword {
+            display: inline-block;
+            background: #f1f3f5;
+            border: 1px solid #c8ccd1;
+            border-radius: 3px;
+            padding: 5px 8px;
+            margin: 3px;
+            font-size: 12px;
+            color: #54595d;
+        }
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 20px 24px;
+            border-top: 1px solid #c8ccd1;
+            color: #72777d;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+
+        @media (max-width: 1000px) {
+
+            .layout {
+                grid-template-columns: 170px minmax(0, 1fr);
+            }
+
+            .infobox {
+                grid-column: 2;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .layout {
+                display: block;
+            }
+
+            .contents {
+                position: static;
+                margin-bottom: 25px;
+                padding: 15px;
+                background: #ffffff;
+                border: 1px solid #c8ccd1;
+            }
+
+            .infobox {
+                margin-top: 25px;
+            }
+
+            article {
+                padding: 22px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+        }
+
+        .related-articles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .related-card {
+            display: block;
+            padding: 18px;
+            border: 1px solid #d8dce5;
+            border-radius: 8px;
+            background: #fafbfc;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s ease;
+        }
+
+        .related-card:hover {
+            border-color: #6c4ce8;
+            transform: translateY(-2px);
+        }
+
+        .related-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #315fb5;
+            margin-bottom: 6px;
+        }
+
+        .related-category {
+            font-size: 0.82rem;
+            color: #6c4ce8;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        @media (max-width: 700px) {
+            .related-articles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="brand">
+            Web<span>Rank</span>
+        </div>
+
+        <a href="/" class="back-btn">
+            ← Back to Search
+        </a>
+
+    </div>
+</header>
+
+
+<main class="page">
+
+    <div class="layout">
+
+        <!-- =========================
+             CONTENTS
+             ========================= -->
+
+        <aside class="contents">
+
+            <div class="contents-title">
+                Contents
+            </div>
+
+            {% for section in document.sections %}
+
+                <a href="#section-{{ loop.index }}">
+                    {{ section.heading }}
+                </a>
+
+            {% endfor %}
+
+            <a href="#keywords">
+                Keywords
+            </a>
+
+            <a href="#related">
+                Related Articles
+            </a>
+
+        </aside>
+
+
+        <!-- =========================
+             ARTICLE
+             ========================= -->
+
+        <article>
+
+            <div class="category">
+                {{ document.category }}
+            </div>
+
+            <h1>
+                {{ document.title }}
+            </h1>
+
+            <div class="subtitle">
+                From the WebRank Knowledge Base
+            </div>
+
+            <div class="lead">
+                {{ document.summary }}
+            </div>
+
+
+            {% for section in document.sections %}
+
+                <section
+                    class="section"
+                    id="section-{{ loop.index }}"
+                >
+
+                    <h2>
+                        {{ section.heading }}
+                    </h2>
+
+                    <p>
+                        {{ section.text }}
+                    </p>
+
+                </section>
+
+            {% endfor %}
+
+
+            <!-- =========================
+                 KEYWORDS
+                 ========================= -->
+
+            <section
+                class="section"
+                id="keywords"
+            >
+
+                <h2>
+                    Keywords
+                </h2>
+
+                <div class="keywords">
+
+                    {% for keyword in document.keywords %}
+
+                        <span class="keyword">
+                            {{ keyword }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+            <section id="related">
+                <h2>Related Articles</h2>
+
+                <div class="related-articles">
+                    {% for related_id in document.related_articles %}
+                        {% set related = documents.get(related_id) %}
+                
+                        {% if related %}
+                            <a
+                                href="{{ url_for('document', doc_id=related.id) }}"
+                                class="related-card"
+                            >
+                                <div class="related-title">
+                                    {{ related.title }}
+                                </div>
+                            
+                                <div class="related-category">
+                                    {{ related.category }}
+                                </div>
+                            
+                                <p>
+                                    {{ related.summary }}
+                                </p>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+            
+
+        </article>
+
+
+        <!-- =========================
+             INFOBOX
+             ========================= -->
+
+        <aside class="infobox">
+
+            <div class="infobox-title">
+                {{ document.title }}
+            </div>
+
+            <div class="infobox-row">
+
+                <span class="infobox-label">
+                    Category
+                </span>
+
+                {{ document.category }}
+
+            </div>
+
+            <div class="infobox-row">
+
+                <span class="infobox-label">
+                    Document ID
+                </span>
+
+                {{ document.id }}
+
+            </div>
+
+            <div class="infobox-row">
+
+                <span class="infobox-label">
+                    Knowledge Base
+                </span>
+
+                WebRank
+
+            </div>
+
+            <div class="infobox-row">
+
+                <span class="infobox-label">
+                    Keywords
+                </span>
+
+                {{ document.keywords | length }}
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    WebRank — Algorithm-Driven Search Ranking System
+
+</footer>
+
+</body>
+</html>
