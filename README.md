@@ -56,8 +56,7 @@ The project also provides an interactive algorithm dashboard that exposes the pr
 
 
 
-
-✨ Features
+## ✨ Features
 🔎 Search across a 100-document dataset
 ⚡ Hash-based term lookup
 🔍 Linear and binary search comparison
@@ -72,7 +71,8 @@ The project also provides an interactive algorithm dashboard that exposes the pr
 📖 Wikipedia-inspired article pages
 🔗 Related article navigation
 🌐 Publicly deployed web application
-🧠 Algorithms and Data Structures
+
+## 🧠 Algorithms and Data Structures
 1. Inverted Index
 
 The inverted index maps each term to a posting list containing the documents in which the term occurs.
@@ -184,7 +184,7 @@ O(K)
 
 This is particularly useful when K is much smaller than R.
 
-📊 Benchmark Results
+## 📊 Benchmark Results
 
 The following measurements were obtained from the project's benchmark module.
 
@@ -231,7 +231,8 @@ Quick Sort → O(R log R) average
              O(R²) worst case
 
 Min-Heap   → O(R log K)
-📈 Complexity Summary
+
+## 📈 Complexity Summary
 Component	Algorithm	Complexity
 Query preprocessing	Tokenization	O(Q)
 Exact term lookup	Hash Search	O(1) average
@@ -249,7 +250,8 @@ Q = number of query terms
 V = vocabulary size
 R = number of candidate documents
 K = number of requested results
-🗂️ Project Structure
+
+## 🗂️ Project Structure
 WebSearch-Ranking-System/
 │
 ├── algorithms/
@@ -301,7 +303,8 @@ JavaScript
 Chart.js
 Git & GitHub
 Render
-▶️ Run Locally
+
+## ▶️ Run Locally
 1. Clone the repository
 git clone https://github.com/AadhithiyaprabakarD/WebSearch-Ranking-System.git
 cd WebSearch-Ranking-System
@@ -320,7 +323,8 @@ python app.py
 Open:
 
 http://127.0.0.1:5000
-🌐 Deployment
+
+## 🌐 Deployment
 
 The application is deployed using Render.
 
@@ -335,7 +339,8 @@ pip install -r requirements.txt
 
 Start Command:
 gunicorn app:app
-🎯 Project Objective
+
+## 🎯 Project Objective
 
 The primary objective of WebRank is to demonstrate how different Data Structures and Algorithms affect the efficiency of a practical search system.
 
@@ -349,7 +354,7 @@ Top-K selection
 
 This allows their theoretical complexity and measured performance to be examined within one working application.
 
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 Trie-based autocomplete
 Larger real-world document corpus
 Phrase searching
@@ -359,10 +364,9 @@ Search result highlighting
 Persistent benchmark history
 Improved query understanding
 Additional retrieval algorithms
-👨‍💻 Project
+
+## 👨‍💻 Project
 
 WebRank — Web Search Ranking System
 
 Built as a Data Structures and Algorithms project demonstrating practical algorithm selection, complexity analysis, benchmarking, and interactive visualization.
-
-
